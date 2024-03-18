@@ -1,0 +1,32 @@
+<div mat-dialog-content class="nyt-card-details">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        {{ product?.title }}
+      </mat-card-title>
+      <mat-card-subtitle>{{ product?.category }}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="{{ product?.imageUrl ? product?.imageUrl : '' }}"
+      width="200px"
+      height="250px"
+      alt=""
+    />
+    <mat-card-content>
+      <p>
+        {{ product?.description }}
+      </p>
+
+      <div class="row">
+        <div class="col-3" *ngIf="product.price">
+          Price: {{ product?.price }} USD
+        </div>
+       
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div mat-dialog-actions class="card-details-action">
+  <button mat-raised-button color="warn" (click)="closeDialog()">Close</button>
+</div>

@@ -1,0 +1,47 @@
+input {
+  padding: 10px;
+  width: 100%;
+}
+
+button {
+  border-radius: 0px;
+  color: #919191;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  height: 40px;
+  margin-top: 30px;
+
+  &.mat-primary {
+    background-color: #f6921e;
+    color: #fff;
+    border: 1px solid #f6921e;
+    padding: 10px 60px;
+    border-radius: 8px;
+  }
+  &.cancel {
+    color: #014b76;
+    border: 1px solid #014b76;
+    background-color: white;
+    margin-right: 10px;
+  }
+
+  &.disabled {
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+  }
+  &.saving {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .material-icons {
+    font-size: 17px;
+    color: #f6921e;
+    margin-top: 10px;
+  }
+
+
+}
+
