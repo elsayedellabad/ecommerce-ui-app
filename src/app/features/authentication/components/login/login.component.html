@@ -3,6 +3,9 @@
     <form [formGroup]="loginForm" (submit)="onLogin(loginForm)">
       <mat-card>
         <mat-card-title class="text-center">Ecommerce APP</mat-card-title>
+         <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
         <mat-card-subtitle class="text-center">Login</mat-card-subtitle>
         <mat-form-field class="full-width" appearance="fill">
           <mat-label>Email</mat-label>
@@ -26,9 +29,6 @@
           <!-- <a class="link-primary float-end" routerLink="/auth/register"
             >Create new account</a
           > -->
-        </div>
-        <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
-          {{ errorMessage }}
         </div>
       </mat-card>
     </form>

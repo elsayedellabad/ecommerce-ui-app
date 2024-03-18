@@ -53,6 +53,8 @@ export class LoginComponent implements OnInit {
        this.localStorageService.set('token', 'admin');
        this.isUserLoggedInService.isLoggedIn.next(true);
        this.router.navigate(['ecommerce/admin/products']);
+    } else {
+      this.errorMessage = 'Wrong username or password';
     }
   }
 }
