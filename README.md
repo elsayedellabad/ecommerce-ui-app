@@ -13,7 +13,7 @@ npm install -g  @angular/cli@13.3.1
 ```
 
 ### 3- Download the source code for the following projects:-
-- Download `Ecommerce-UI-APP` project from [here](https://github.com/elsayedellabad/nytimes-ellabad-ui-app).
+- Download `Ecommerce-UI-APP` project from [here](https://github.com/elsayedellabad/ecommerce-ui-app).
 
 
 ## Steps to run downloaded UI project `Ecommerce-UI-APP`:-
