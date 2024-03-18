@@ -11,5 +11,9 @@
 }
 
 .col-3:first-child {
-  margin-left: 70px;
+  margin-left: 40%;
+}
+
+ .mat-card-image {
+    width: calc(50% + 32px);
 }
