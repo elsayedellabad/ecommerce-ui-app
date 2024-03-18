@@ -1,3 +1,8 @@
 .login-panel {
   margin-top: 10rem;
 }
+@media only screen and (max-width: 600px) {
+  .mat-card-title{
+    font-size: 10px;
+  }
+}
