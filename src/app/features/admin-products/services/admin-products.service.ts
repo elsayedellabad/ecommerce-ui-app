@@ -7,6 +7,7 @@ import { AdminProductItem } from './../models/admin-product-item.model';
   providedIn: 'root',
 })
 export class AdminProductsService {
+  selectedProduct: any;
   constructor(private http: HttpClient) {}
 
   getAdminProducts(): Observable<AdminProductItem[]> {
@@ -14,9 +15,14 @@ export class AdminProductsService {
     return this.http.get<AdminProductItem[]>(apiUrl);
   }
 
-  saveNewProduct(newProduct:any) {
+  saveNewProduct(newProduct: any) {
     let apiUrl = 'https://fakestoreapi.com/products';
     return this.http.post(apiUrl, newProduct);
+  }
+
+  updateProduct(productId: number, payload:any) {
+    let apiUrl = 'https://fakestoreapi.com/products/';
+    return this.http.put(apiUrl + productId, payload);
   }
 
   deleteProduct(productId: number) {

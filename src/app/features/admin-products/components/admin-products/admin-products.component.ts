@@ -29,7 +29,8 @@ export class AdminProductsComponent implements OnInit {
   previousPageIndex: number | undefined = 0;
   constructor(
     private adminProductsService: AdminProductsService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -67,19 +68,19 @@ export class AdminProductsComponent implements OnInit {
    * @returns {PageEvent} event
    */
   public getServerData(event: PageEvent) {
-    if (this.products && Array.isArray(this.products)) { 
-        if (event.pageIndex == 0)
-          this.dataSource = this.products.slice(0, event.pageSize);
-        else
-          this.dataSource = this.products.slice(
-            event.pageIndex * event.pageSize,
-            (event.pageIndex + 1) * event.pageSize
-          );
+    if (this.products && Array.isArray(this.products)) {
+      if (event.pageIndex == 0)
+        this.dataSource = this.products.slice(0, event.pageSize);
+      else
+        this.dataSource = this.products.slice(
+          event.pageIndex * event.pageSize,
+          (event.pageIndex + 1) * event.pageSize
+        );
     } else {
       // Handle the case where this.products is not an array (log error, return empty data)
       console.error('this.products is not an array');
       this.dataSource = [];
-    } 
+    }
     this.pageIndex = event?.pageIndex;
     this.pageSize = event?.pageSize;
     this.previousPageIndex = event?.previousPageIndex;
@@ -87,7 +88,7 @@ export class AdminProductsComponent implements OnInit {
     return event;
   }
 
-  deleteProduct(prodId: number){
+  deleteProduct(prodId: number) {
     this.adminProductsService.deleteProduct(prodId).subscribe({
       next: (result) => {
         this.products = this.products.filter((el) => el.id != prodId);
@@ -97,13 +98,16 @@ export class AdminProductsComponent implements OnInit {
           pageSize: 6,
           previousPageIndex: this.previousPageIndex,
         });
-       console.log(
-        'Product Deleted Successfully!'
-       );
+        console.log('Product Deleted Successfully!');
       },
       error: (e) => {
         console.log(e.error['message']);
       },
     });
-  };
+  }
+
+  updateProduct(product: any) {
+    this.adminProductsService.selectedProduct = product;
+    this.router.navigateByUrl('/ecommerce/admin/update-product');
+  }
 }

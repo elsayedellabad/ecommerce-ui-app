@@ -4,6 +4,7 @@ import { AdminProductsContainerComponent } from './components/admin-products-con
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { NewProductComponent } from './components/admin-new-product/admin-new-product.component';
+import { UpdateProductComponent } from './components/admin-update-product/admin-update-product.component';
 import { AdminUserGuard } from 'src/app/core';
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'new-product',
         component: NewProductComponent,
+      },
+      {
+        path: 'update-product',
+        component: UpdateProductComponent,
       },
     ],
     canActivate: [AuthGuard, AdminUserGuard],

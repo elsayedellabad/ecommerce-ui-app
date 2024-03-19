@@ -14,13 +14,15 @@ import { AdminProductsComponent } from './components/admin-products/admin-produc
 import { AdminProductsContainerComponent } from './components/admin-products-container/admin-products-container.component';
 import { AdminProductsRoutingModule } from './admin-products-routing.module';
 import { MatTableModule } from '@angular/material/table';
-import { NewProductComponent } from './components/admin-new-product/admin-new-product.component';
+import { NewProductComponent } from './components/admin-new-product/admin-new-product.component';;
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { UpdateProductComponent } from './components/admin-update-product/admin-update-product.component';
 @NgModule({
   declarations: [
     AdminProductsContainerComponent,
     AdminProductsComponent,
     NewProductComponent,
+    UpdateProductComponent,
   ],
   imports: [
     CommonModule,

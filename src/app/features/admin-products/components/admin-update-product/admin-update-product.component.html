@@ -1,0 +1,94 @@
+<div class="wrapper ml-5 mt-5">
+  <div class="title">
+    <h2>
+      <a (click)="back()">
+        <span class="material-icons"> keyboard_backspace </span>
+      </a>
+      Update Product
+    </h2>
+  </div>
+  <div class="form-wrapper">
+    <form [class.disabled]="loadingDetails" [formGroup]="updateProductForm">
+      <div class="row">
+        <div class="form-group col-sm-6 col-12">
+          <label for="title">Title<span>*</span></label>
+          <input
+            type="text"
+            formControlName="title"
+            placeholder="Title"
+            required
+          />
+        </div>
+        <div class="form-group col-sm-6 col-12">
+          <label for="price">Price <span>*</span></label>
+          <input
+            type="number"
+            formControlName="price"
+            placeholder="Price"
+            required
+          />
+        </div>
+      </div>
+       <div class="row">
+        <div class="form-group col-sm-6 col-12">
+          <label for="description">Description<span>*</span></label>
+          <input
+            type="text"
+            formControlName="description"
+            placeholder="Description"
+            required
+          />
+        </div>
+        <div class="form-group col-sm-6 col-12">
+          <label for="image">Image URL <span>*</span></label>
+          <input
+            type="text"
+            formControlName="image"
+            placeholder="Image URL"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-6 col-12">
+          <label for="category">Category<span>*</span></label>
+          <input
+            type="text"
+            formControlName="category"
+            placeholder="Category"
+            required
+          />
+        </div>
+      </div>
+      
+
+    </form>
+  </div>
+  <div class="controls-btn d-flex" fxLayout="row" fxLayoutAlign="flex-end">
+    <div>
+      <button
+        color="mat-primary"
+        class="mat-primary cancel"
+        (click)="goToProductsListing()"
+      >
+        Cancel
+      </button>
+    </div>
+    <div>
+      <!-- [disabled]="monthlyBudgetForm.invalid" -->
+      <button
+        [class.saving]="saving"
+        [ngClass]="updateProductForm.invalid ? 'disabled' : ''"
+        color="primary"
+        class="mat-primary"
+        (click)="updateProduct()"
+        type="submit"
+      >
+        Save
+        <mat-spinner *ngIf="saving" diameter="15" class="btn-spinner">
+        </mat-spinner>
+      </button>
+    </div>
+  </div>
+</div>
